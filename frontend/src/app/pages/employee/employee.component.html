@@ -1,0 +1,65 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h1">
+        Employee {{currentEmployee.first_name}}
+    </h1>
+    <a class="btn btn-light shadow-sm" (click)="backButton()">
+        Back
+    </a>
+</div>
+
+<div>
+    <h3 class="h3 mb-5">{{currentEmployee.first_name}} {{currentEmployee.last_name}}</h3>
+    
+    <div class="mb-4">
+        <fa-icon 
+            [icon]="faBirthdayCake" size="lg"></fa-icon>
+        {{currentEmployee.birth_date}}
+    </div>
+
+    <div class="mb-5">
+        <fa-icon [icon]="faFileSignature" size="lg"></fa-icon>
+        {{currentEmployee.hire_date}}
+    </div>
+
+    <div *ngIf="employeeTitles.length !== 0; else noTitles">
+        <h3 class="h4 mb-3">Titles</h3>
+
+        <div class="table-responsive">
+            <table class="table table-theme table-row v-middle">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>From date</th>
+                        <th>To date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let title of employeeTitles">
+                        <tr>
+                            <td>
+                                {{title.title}}
+                            </td>
+                            <td>
+                                {{title.from_date}}
+                            </td>
+                            <td>
+                                {{title.to_date}}
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <ng-template #noTitles>
+        <h1 class="h1 text-muted d-sm-flex align-items-center justify-content-center">
+            <fa-icon 
+                class="mt-1"
+                [icon]="faExclamationTriangle" size="lg"></fa-icon>
+            <div class="mx-4">
+                No titles
+            </div>
+        </h1>
+    </ng-template>
+</div>

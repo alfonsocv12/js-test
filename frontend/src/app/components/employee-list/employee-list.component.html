@@ -1,0 +1,32 @@
+<div class="table-responsive">
+    <table class="table table-theme table-row v-middle">
+        <thead>
+            <tr>
+                <th class="text-muted" style="width:1rem">#</th>
+                <th class="text-muted">Name</th>
+                <th class="text-muted" style="width:1rem">Hire date</th>
+                <th class="text-muted" style="width:1rem;">Birth date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container 
+                *ngFor="let employee of employees">
+                <tr 
+                    (click)="selectOneEmployee(employee)"
+                    class="v-middle"
+                    style="height: 4rem;">
+                    <td>{{employee.emp_no}}</td>
+                    <td class="flex">
+                        {{employee.first_name}} {{employee.last_name}}
+                    </td>
+                    <td><span class="badge bg-primary-lt">
+                            {{employee.hire_date}}
+                        </span></td>
+                    <td><span class="badge bg-warning-lt">
+                            {{employee.birth_date}}
+                        </span></td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

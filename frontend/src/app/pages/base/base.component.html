@@ -1,0 +1,20 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h1">Employee management</h1>
+    <a *ngIf="selectedBody.section === 1; else elseBlock"
+        class="btn btn-primary shadow-sm"
+        (click)="changeBody(1)">
+        Create employee
+    </a>
+    <ng-template #elseBlock>
+        <a 
+            class="btn btn-light shadow-sm"
+            (click)="changeBody(0)">
+            Back
+        </a>
+    </ng-template>
+</div>
+
+<div>
+    <ng-template appDirective>
+    </ng-template>
+</div>
